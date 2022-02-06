@@ -1,9 +1,10 @@
-import MuiForm from "./muiform";
+// import MuiForm from "./muiform";
+import Table from "./table"
 const App=()=>{
   return(
       <>
-        
-        <MuiForm/> 
+       <Table/> 
+        {/* <MuiForm/>  */}
       </>
   );
 }
