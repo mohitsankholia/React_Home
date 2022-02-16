@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { update } from './list';
 
 const Edit=(kalpana)=>{
 
+    const [pos,setPos]=useState(kalpana.order)
     const[data,setDate]=useState(
         {
             "org":kalpana.corp.org,
@@ -26,11 +28,6 @@ const Edit=(kalpana)=>{
             }
         })
     }
-
-    const adding=()=>{
-        alert(JSON.stringify(data));
-    }
-
       
     return(
         <>
@@ -39,7 +36,7 @@ const Edit=(kalpana)=>{
                 <div className="row justify-content-center">
                     <div className="col-lg-6 col-md-8 col-sm-12 shadow-lg p-3">
                         <div>
-                        <TextField 
+                        <TextField className='row'
                             required
                             id="outlined-required"
                             label="organization name"
@@ -61,7 +58,7 @@ const Edit=(kalpana)=>{
                         </div>
 
                         <div>
-                        <TextField 
+                        <TextField className='row mt-3'
                             required
                             id="outlined-number"
                             label="employees"
@@ -69,10 +66,8 @@ const Edit=(kalpana)=>{
                             name="employess"
                             value={data.employess}
                         />
-                        </div>
                         
-                        <div>
-                        <TextField 
+                        <TextField className='mt-3 ms-3'
                             required
                             id="outlined-number"
                             label="basic"
@@ -81,6 +76,8 @@ const Edit=(kalpana)=>{
                             value={data.basic}
                         />
                         </div>
+
+                        <div>
                         <TextField className="row mt-3"
                             required
                             id="outlined-required"
@@ -90,7 +87,7 @@ const Edit=(kalpana)=>{
                             value={data.services}
                         />
 
-                        <TextField 
+                        <TextField className='mt-3 ms-3'
                             required
                             id="outlined-required"
                             label="benchmarks"
@@ -98,9 +95,18 @@ const Edit=(kalpana)=>{
                             name="benchmark"
                             value={data.benchmark}
                          /> 
+                        </div>
 
-                        <div className="text-center">
-                            <Button variant="contained" color="success" onClick={adding}>Submit</Button>
+
+                        <div className="text-center mt-2">
+                            <Button variant="contained" color="success" 
+                            onClick={()=>{
+                                alert(JSON.stringify(data)+" "+pos)
+                                update(data,pos)
+                            }}>
+                            Submit
+                            </Button>
+                            
                             <Button className="ms-3" variant="contained" color="error">Cancle</Button>
                         </div>
                     </div> 

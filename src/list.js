@@ -45,5 +45,10 @@ const putting=(obj)=>{
     alert("New Corporate added")
 }
 
-export {getting, putting} 
+const update=(corporate,index)=>{
+    info[index]=corporate
+    alert(corporate.org+" has updated")
+}
+
+export {getting, putting, update} 
 export default info;

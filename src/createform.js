@@ -41,7 +41,7 @@ const Create=()=>{
                 <div className="row justify-content-center">
                     <div className="col-lg-6 col-md-8 col-sm-12 shadow-lg p-3">
                         <div>
-                        <TextField 
+                        <TextField className="row"
                             required
                             id="outlined-required"
                             label="organization name"
@@ -63,7 +63,7 @@ const Create=()=>{
                         </div>
 
                         <div>
-                        <TextField 
+                        <TextField className="row mt-3"
                             required
                             id="outlined-number"
                             label="employees"
@@ -71,10 +71,8 @@ const Create=()=>{
                             name="employess"
                             value={data.employess}
                         />
-                        </div>
                         
-                        <div>
-                        <TextField 
+                        <TextField className="ms-3 mt-3"
                             required
                             id="outlined-number"
                             label="basic"
@@ -92,7 +90,7 @@ const Create=()=>{
                             value={data.services}
                         />
 
-                        <TextField 
+                        <TextField className="ms-3 mt-3"
                             required
                             id="outlined-required"
                             label="benchmarks"
@@ -101,7 +99,7 @@ const Create=()=>{
                             value={data.benchmark}
                          /> 
 
-                        <div className="text-center">
+                        <div className="text-center mt-2">
                             <Button variant="contained" color="success" onClick={adding}>Submit</Button>
                             <Button className="ms-3" variant="contained" color="error">Cancle</Button>
                         </div>

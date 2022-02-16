@@ -12,6 +12,7 @@ const Table=()=>{
     const [cview,setCview]=useState(false)
     const [rview,setRview]=useState(false)
     const [eview,setEview]=useState(false)
+    const [pos, setPos]=useState(0)
     
     const callCreate=()=>{
         setCview(true)
@@ -21,8 +22,8 @@ const Table=()=>{
         {
             "org":"",
             "Location":"",
-            "employess":0,
-            "basic":0.0,
+            "employess":"",
+            "basic":"",
             "services":"",
             "benchmark":""
         }
@@ -33,34 +34,37 @@ const Table=()=>{
                 {(cview)?
                 <>
                     <Create/>
+                    <div className="text-center mt-2">
                     <button className="btn btn-outline-dark" 
                     onClick={()=>setCview(false)}>
                         Back
                     </button>
+                    </div>
                 </>
                 :
                 (rview)?
                 <>
                 <Read corp={obj}/>
+                <div className="text-center mt-2">
                 <button className="btn btn-outline-dark" 
                 onClick={()=>setRview(false)}>
                     Back
                 </button>
+                </div>
                  </>
                 :
                 (eview)?
                 <>
-                <Edit corp={obj}/>
+                <Edit corp={obj} order={pos}/>
+                <div className="text-center mt-2">
                 <button className="btn btn-outline-dark" 
                 onClick={()=>setEview(false)}>
                     Back
                 </button>
+                </div>
                 </>
                 :
             <>
-            {/* <button className="btn btn-outline-success" onClick={callCreate}>
-                Create
-            </button>  */}
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-10 col-sm-12 table-responsive">
                     <table className="table table-stripped table-hover shodow text-dark bg-info">
@@ -113,6 +117,7 @@ const Table=()=>{
                                                 setEview(true)
                                                 const tmp=getting(data.org)
                                                 setObj(tmp)
+                                                setPos(index)
                                             }}>
                                             <EditIcon/>
                                         </button>
